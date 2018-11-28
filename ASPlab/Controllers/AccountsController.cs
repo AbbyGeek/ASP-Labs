@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ASPlab.Models;
 
 namespace ASPlab.Controllers
 {
@@ -14,40 +15,20 @@ namespace ASPlab.Controllers
             return View();
         }
 
-        //public ActionResult Accounts()
-        //{
-        //    ViewBag.Message = "Register page.";
-        //    return View();
-        //}
 
         public ActionResult Register()
         {
             return View();
         }
-    }
 
-    public class AddUser
-    {
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string email { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
-        public string pronouns { get; set; }
-        public string birthday { get; set; }
-        public string color { get; set; }
-
-        public AddUser(string FirstName, string LastName, string Email, string Username, string Password, string Pronouns, string Birthday, string Color)
+        public ActionResult LandingPage(User newUser)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            Email = email;
-            Username = username;
-            Password = password;
-            Pronouns = pronouns;
-            Birthday = birthday;
-            Color = color;
+
+            //use newUser info and send it to LandingPage View with a ViewBag 
+            ViewBag.user = newUser;
+            return View();
         }
 
     }
+    
 }

@@ -1,40 +1,59 @@
 ﻿
 @{
     ViewBag.Title = "Register";
+
 }
 
-<form>
-    <h2>Register</h2>
-    <p>Enter your information below to register your account</p>
-    <hr />
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
 
-    <label for="firstName">First Name</label><br />
-    <input type="text" name="firstName" placeholder="Enter your first name" /><br />
+        $(document).ready(function () {
 
-    <label for="lastName">Last Name</label><br />
-    <input type="text" name="lastName" placeholder="Enter your last name" /><br />
+            $("#EmailInput").keyup(function () {
+                //IF EMAIL DOES NOT PASS TEST
+                $("#Email").replaceWith("<label style='color:red'>Inalid Email</label>");
+                //ELSE GO BACK
+            });
+        });
+    </script>
 
-    <label for="email">Email Address</label><br />
-    <input type="text" name="email" placeholder="Enter your email address" /><br />
+</head>
 
-    <label for="userName">Desired Login Name</label><br />
-    <input type="text" name="userName" placeholder="Enter your desired username" /><br />
+<h2>Register</h2>
+<p>Enter your information below to register your account</p>
+<hr />
 
-    <label for="password">Password</label><br />
-    <input type="password" name="password" placeholder="Enter your Password" /><br />
+<form action="/Accounts/LandingPage" method="get" name="register" onsubmit="return validateForm()">
 
-    <label for="pronouns">Preferred Pronouns</label><br />
-    <input type="radio" name="pronouns" placeholder="Select your pronouns" />He/Him<br />
-    <input type="radio" name="pronouns" placeholder="Select your pronouns" />She/Her<br />
-    <input type="radio" name="pronouns" placeholder="Select your pronouns" />They/Them<br />
-    <input type="text" name="pronouns" placeholder="Enter your pronouns" />Other<br />
+    <label for="FirstName" id="FirstName">First Name</label><br />
+    <input type="text" name="FirstName" required /><br />
 
-    <label for="birthday">Birthday</label><br />
-    <input type="date" name="birthday" />
+    <label for="LastName">Last Name</label><br />
+    <input type="text" name="LastName"  /><br />
 
-    <label for="color">Favorite color</label><br />
-    <input type="text" name="color" placeholder="Enter a color" /><br />
+    <label for="Email" id="Email">Email Address</label><br />
+    <input 
+           type="email" name="Email" id="EmailInput"  required /><br />
 
-    <button type="submit">Submit</button>
+    <label for="UserName">Desired Login Name</label><br />
+    <input type="text" name="UserName" required /><br />
+
+    <label for="Password">Password</label><br />
+    <input type="password" name="Password" required /><br />
+
+    <label for="Gender">Gender</label><br />
+    <input type="radio" name="Gender" placeholder="Select your gender" />Male<br />
+    <input type="radio" name="Gender" placeholder="Select your gender" />Female<br />
+    <input type="text" name="Gender" placeholder="Enter your gender" />Other<br />
+
+    <label for="Birthday">Birthday</label><br />
+    <input type="date" name="Birthday" />
+
+    <label for="Color">Favorite color</label><br />
+    <input type="text" name="Color" /><br />
+
+    <input type="submit" class="btn-primary" value="Submit" />
+    <button type="submit" id="submit">Submit</button>
 
 </form>
