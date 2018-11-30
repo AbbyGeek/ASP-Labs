@@ -1,21 +1,61 @@
 ﻿
 @{
+
     ViewBag.Title = "Register";
+
 
 }
 
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
-
+           
         $(document).ready(function () {
 
             $("#EmailInput").keyup(function () {
-                //IF EMAIL DOES NOT PASS TEST
-                $("#Email").replaceWith("<label style='color:red'>Inalid Email</label>");
-                //ELSE GO BACK
-            });
+                var str = this.value;
+                validateEmail(str);
+            }); 
         });
+        function validateEmail(str){
+            var emailReg = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,4})?$/;
+            var box = "#EmailInput";
+            if (!emailReg.test(str)) {
+                // Make box red
+                $("#Email").css("color", "red");
+                console.log("fail");
+            } else {
+                //make label green
+                $("#Email").css("color", "black");
+                console.log("pass");
+            }
+        }
+        function validateAge(str) {
+            var today = new Date();
+            var dob = new Date(str);
+            console.log(dob);
+            console.log(today);
+            var age = Math.floor((today - dob) / (365.25 * 24 * 60 * 60 * 1000));
+
+            return age;   
+        }
+        var onward = function checkSubmit() {
+            var str = new Date($('#BirthdayInput').val());
+            console.log("entered bday: " + str);
+            var age = validateAge(str);
+            console.log(age);
+            if (age < 18) {
+                alert("age under 18");
+                event.preventDefault();
+            }
+            var emailReg = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,4})?$/;
+            var box = "#EmailInput";
+            if (!emailReg.test(str)) {
+                event.preventDefault();
+                alert("Invalid Email");
+            }            
+        }
+
     </script>
 
 </head>
@@ -24,23 +64,22 @@
 <p>Enter your information below to register your account</p>
 <hr />
 
-<form action="/Accounts/LandingPage" method="get" name="register" onsubmit="return validateForm()">
+<form action="/Accounts/LandingPage" method="get" name="register" onsubmit="return onward()">
 
     <label for="FirstName" id="FirstName">First Name</label><br />
-    <input type="text" name="FirstName" required /><br />
+    <input type="text" name="FirstName"  /><br />
 
     <label for="LastName">Last Name</label><br />
     <input type="text" name="LastName"  /><br />
 
     <label for="Email" id="Email">Email Address</label><br />
-    <input 
-           type="email" name="Email" id="EmailInput"  required /><br />
+    <input type="email" name="Email" id="EmailInput"   /><br />
 
     <label for="UserName">Desired Login Name</label><br />
-    <input type="text" name="UserName" required /><br />
+    <input type="text" name="UserName"  /><br />
 
     <label for="Password">Password</label><br />
-    <input type="password" name="Password" required /><br />
+    <input type="password" name="Password"  /><br />
 
     <label for="Gender">Gender</label><br />
     <input type="radio" name="Gender" placeholder="Select your gender" />Male<br />
@@ -48,12 +87,12 @@
     <input type="text" name="Gender" placeholder="Enter your gender" />Other<br />
 
     <label for="Birthday">Birthday</label><br />
-    <input type="date" name="Birthday" />
+    <input type="date" name="Birthday" id="BirthdayInput" />
 
     <label for="Color">Favorite color</label><br />
     <input type="text" name="Color" /><br />
 
-    <input type="submit" class="btn-primary" value="Submit" />
-    <button type="submit" id="submit">Submit</button>
+    <input type="submit" class="btn-primary" value="Submit"id="SubmitBtn" />
+
 
 </form>

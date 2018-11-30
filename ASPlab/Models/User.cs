@@ -9,23 +9,23 @@ namespace ASPlab.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string email { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
-        public string pronouns { get; set; }
-        public string birthday { get; set; }
-        public string color { get; set; }
+        public string Email { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Gender { get; set; }
+        public string Birthday { get; set; }
+        public string Color { get; set; }
 
         public User() { }
 
-        public User(string firstName, string lastName, string Email, string Username, string Password, string Pronouns, string Birthday, string Color)
+        public User(string firstName, string lastName, string email, string username, string password, string gender, string birthday, string color)
         {
             FirstName = firstName;
             LastName = lastName;
             Email = email;
             Username = username;
             Password = password;
-            Pronouns = pronouns;
+            Gender = gender;
             Birthday = birthday;
             Color = color;
         }
