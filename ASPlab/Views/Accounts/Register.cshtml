@@ -12,7 +12,8 @@
            
         $(document).ready(function () {
 
-            $("#EmailInput").keyup(function () {
+            $("#email").keyup(function () {
+                console.log(".");
                 var str = this.value;
                 validateEmail(str);
             }); 
@@ -45,15 +46,15 @@
             var age = validateAge(str);
             console.log(age);
             if (age < 18) {
-                alert("age under 18");
                 event.preventDefault();
+                alert("age under 18");
             }
             var emailReg = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,4})?$/;
             var box = "#EmailInput";
-            if (!emailReg.test(str)) {
+            if (emailReg.test(box)) {
                 event.preventDefault();
                 alert("Invalid Email");
-            }            
+            }          
         }
 
     </script>
@@ -87,7 +88,7 @@
     <input type="text" name="Gender" placeholder="Enter your gender" />Other<br />
 
     <label for="Birthday">Birthday</label><br />
-    <input type="date" name="Birthday" id="BirthdayInput" />
+    <input type="date" name="Birthday" id="BirthdayInput" /><br />
 
     <label for="Color">Favorite color</label><br />
     <input type="text" name="Color" /><br />
