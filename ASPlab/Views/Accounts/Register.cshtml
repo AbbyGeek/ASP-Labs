@@ -12,16 +12,17 @@
            
         $(document).ready(function () {
 
-            $("#email").keyup(function () {
+            $("#EmailInput").keyup(function () {
                 console.log(".");
                 var str = this.value;
                 validateEmail(str);
             }); 
+
         });
         function validateEmail(str){
             var emailReg = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,4})?$/;
-            var box = "#EmailInput";
-            if (!emailReg.test(str)) {
+            var box = $( "#EmailInput" ).val;
+            if (!emailReg.test(box)) {
                 // Make box red
                 $("#Email").css("color", "red");
                 console.log("fail");
@@ -50,10 +51,10 @@
                 alert("age under 18");
             }
             var emailReg = /^([\w-\.]+@@([\w-]+\.)+[\w-]{2,4})?$/;
-            var box = "#EmailInput";
-            if (emailReg.test(box)) {
+            var email = $("#EmailInput").val();
+            if (!emailReg.test(email)) {
                 event.preventDefault();
-                alert("Invalid Email");
+                alert("Email is invalid");
             }          
         }
 
@@ -74,7 +75,7 @@
     <input type="text" name="LastName"  /><br />
 
     <label for="Email" id="Email">Email Address</label><br />
-    <input type="email" name="Email" id="EmailInput"   /><br />
+    <input type="text" name="Email" id="EmailInput"   /><br />
 
     <label for="UserName">Desired Login Name</label><br />
     <input type="text" name="UserName"  /><br />

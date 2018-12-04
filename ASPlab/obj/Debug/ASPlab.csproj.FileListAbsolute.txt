@@ -78,3 +78,7 @@ C:\Users\awessels\source\repos\ASPlab\ASPlab\obj\Debug\ASPlab.csproj.CoreCompile
 C:\Users\awessels\source\repos\ASPlab\ASPlab\obj\Debug\ASPlab.csproj.CopyComplete
 C:\Users\awessels\source\repos\ASPlab\ASPlab\obj\Debug\ASPlab.dll
 C:\Users\awessels\source\repos\ASPlab\ASPlab\obj\Debug\ASPlab.pdb
+C:\Users\awessels\source\repos\ASPlab\ASPlab\bin\EntityFramework.dll
+C:\Users\awessels\source\repos\ASPlab\ASPlab\bin\EntityFramework.SqlServer.dll
+C:\Users\awessels\source\repos\ASPlab\ASPlab\bin\EntityFramework.xml
+C:\Users\awessels\source\repos\ASPlab\ASPlab\bin\EntityFramework.SqlServer.xml
